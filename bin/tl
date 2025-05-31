@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# tl - A simple command line tool to manage and run tasks
+# Usage: tl [Epic key]
+
+usage() {
+    echo "Usage: tl [Epic key]"
+}
+
+# Print error if the script is run without arguments
+if [[ $# -eq 0 ]]; then
+    echo "Error: No arguments provided."
+    usage
+    exit 1
+fi
+
+# Print help if the first argument is --help or -h
+if [[ "$1" == "--help" || "$1" == "-h" ]]; then
+    usage
+    exit 0
+fi
+
+# Check if the first argument is a valid Epic key format
+if [[ "$1" =~ ^[A-Z]{2,}-[0-9]+$ ]]; then
+    EPIC_KEY="$1"
+else
+    echo "Error: Invalid Epic key format. Expected format: ABC-123"
+    exit 1
+fi
+
+# Run the Python script with the provided Epic key
+PYTHONPATH=src uv run bin/tl.py "$EPIC_KEY"
+
+# Check if the Python script ran successfully
+if [[ $? -ne 0 ]]; then
+    echo "Error: tl.py failed to run."
+    exit 1
+fi
+
+# vim: set ft=sh

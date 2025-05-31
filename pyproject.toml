@@ -1,0 +1,45 @@
+[project]
+name = "timeline"
+version = "0.1.0"
+description = "Display timelines of Jira issues"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "jira",
+    "python-dateutil",
+    "python-dotenv>=1.1.0",
+    "rich",
+]
+
+[dependency-groups]
+dev = [
+    "isort>=6.0.1",
+]
+
+[tool.pyright]
+pythonVersion = "3.13"
+venv = ".venv"
+venvPath = "."
+typeCheckingMode = "basic" # Options: "off", "basic", "strict"
+
+include = ["src", "tests"]
+
+exclude = ["**/node_modules", "**/__pycache__", "**/*.pyc"]
+
+reportMissingImports = true # Report missing imports
+reportUnusedImports = true  # Report unused imports
+reportUnusedFunction = true # Report unused functions
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
