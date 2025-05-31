@@ -1,20 +1,20 @@
 [project]
 name = "timeline"
-version = "0.1.0"
+version = "0.1.1"
 description = "Display timelines of Jira issues"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = [
-    "jira",
-    "python-dateutil",
-    "python-dotenv>=1.1.0",
-    "rich",
-]
+dependencies = ["jira", "python-dateutil", "python-dotenv>=1.1.0", "rich"]
 
 [dependency-groups]
-dev = [
-    "isort>=6.0.1",
-]
+dev = ["isort>=6.0.1"]
+
+[project.scripts]
+timeline = "timeline.main_cli:main"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
 
 [tool.pyright]
 pythonVersion = "3.13"

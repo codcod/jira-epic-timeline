@@ -29,7 +29,7 @@ else
 fi
 
 # Run the Python script with the provided Epic key
-PYTHONPATH=src uv run bin/tl.py "$EPIC_KEY"
+PYTHONPATH=src uv run src/timeline/main_cli.py "$EPIC_KEY"
 
 # Check if the Python script ran successfully
 if [[ $? -ne 0 ]]; then
