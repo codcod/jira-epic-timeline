@@ -64,12 +64,10 @@ major_on_zero = true
 allow_zero_version = true
 no_git_verify = false
 version_toml = ["pyproject.toml:project.version"]
+tag_format = "v{version}"
 
 [tool.semantic_release.branches.main]
 match = "main"
-
-[tool.semantic_release.branches.other]
-match = ".*"
 prerelease_token = "rc"
 prerelease = true
 
@@ -127,9 +125,15 @@ allowed_tags = [
   "test",
 ]
 default_bump_level = 0
+parse_squash_commits = true
+ignore_merge_commits = true
 
 [tool.semantic_release.remote]
 name = "origin"
 type = "github"
 ignore_token_for_push = false
 insecure = false
+
+[tool.semantic_release.publish]
+dist_glob_patterns = ["dist/*"]
+upload_to_vcs_release = true
