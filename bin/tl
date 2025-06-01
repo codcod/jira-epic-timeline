@@ -33,7 +33,7 @@ PYTHONPATH=src uv run src/timeline/main_cli.py "$EPIC_KEY"
 
 # Check if the Python script ran successfully
 if [[ $? -ne 0 ]]; then
-    echo "Error: tl.py failed to run."
+    echo "Error: main_cli.py failed to run."
     exit 1
 fi
 
