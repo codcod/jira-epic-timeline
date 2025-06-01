@@ -50,7 +50,7 @@ line-ending = "auto"
 [tool.uv.sources]
 jira = { git = "https://github.com/pycontribs/jira.git", rev = "3.10.1" }
 
-# 
+#
 # Semantic Release Configuration
 #
 
@@ -69,11 +69,11 @@ tag_format = "v{version}"
 [tool.semantic_release.branches.main]
 match = "main"
 prerelease_token = "rc"
-prerelease = true
+prerelease = false
 
 [tool.semantic_release.changelog]
 exclude_commit_patterns = []
-mode = "init"
+mode = "update"
 insertion_flag = "<!-- version list -->"
 template_dir = "templates"
 

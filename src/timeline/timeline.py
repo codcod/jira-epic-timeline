@@ -99,6 +99,8 @@ def calculate_epic_timeline(jira: JIRA, epic_id: str) -> Dict:
                 'summary': issue.fields.summary,
                 'in_progress': in_progress_date,
                 'done': done_date,
+                'type': issue.fields.issuetype.name,
+                'status': issue.fields.status.name,
             }
         )
 
@@ -169,12 +171,19 @@ def display_results(timeline_data: Dict) -> None:
     # Create table for issues
     table = Table(title='Issues Timeline')
     table.add_column('Issue Key', style='cyan')
+    table.add_column('Type', style='white')
     table.add_column('Summary', style='white')
     table.add_column('Started', style='green')
     table.add_column('Completed', style='blue')
+    table.add_column('Status', style='white')
     table.add_column('Duration (days)', style='yellow')
 
-    for issue in timeline_data['issue_timelines']:
+    issue_timelines = timeline_data['issue_timelines']
+    sorted_data = sorted(
+        issue_timelines, key=lambda x: (x['in_progress'] is None, x['in_progress'])
+    )
+
+    for issue in sorted_data:
         in_progress_str = (
             issue['in_progress'].strftime('%Y-%m-%d')
             if issue['in_progress']
@@ -200,7 +209,13 @@ def display_results(timeline_data: Dict) -> None:
                 )
 
         table.add_row(
-            issue['key'], issue['summary'], in_progress_str, done_str, duration
+            issue['key'],
+            issue['type'],
+            issue['summary'],
+            in_progress_str,
+            done_str,
+            issue['status'],
+            duration,
         )
 
     console.print(table)
