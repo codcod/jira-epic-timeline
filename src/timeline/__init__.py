@@ -3,6 +3,7 @@ from .timeline import (
     calculate_epic_timeline,
     extract_transition_dates,
     display_results,
+    get_epic_issues,
 )
 from .main_cli import main
 
@@ -11,5 +12,6 @@ __all__ = [
     'calculate_epic_timeline',
     'extract_transition_dates',
     'display_results',
+    'get_epic_issues',
     'main',
 ]

@@ -10,6 +10,9 @@ dependencies = ["jira", "python-dateutil", "python-dotenv>=1.1.0", "rich"]
 dev = [
     "isort>=6.0.1",
     "python-semantic-release>=10.0.2",
+    "pytest>=7.4.0",
+    "pytest-mock>=3.11.1",
+    "pytest-cov>=6.1.1",
 ]
 
 [project.scripts]
@@ -137,3 +140,15 @@ insecure = false
 [tool.semantic_release.publish]
 dist_glob_patterns = ["dist/*"]
 upload_to_vcs_release = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--doctest-modules -vv --cov=timeline --capture=no --log-cli-level=INFO --import-mode=importlib tests"
+testpaths = ["tests"]
+pythonpath = ["src"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+    "ignore::ImportWarning",
+    "ignore::ResourceWarning",
+]
