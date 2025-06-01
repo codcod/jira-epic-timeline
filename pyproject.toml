@@ -1,6 +1,6 @@
 [project]
 name = "timeline"
-version = "0.2.0-rc.1"
+version = "0.2.0"
 description = "Display timelines of Jira issues"
 readme = "README.md"
 requires-python = ">=3.13"
