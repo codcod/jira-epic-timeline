@@ -1,6 +1,35 @@
 # CHANGELOG
 
 
+## v0.2.1 (2025-06-05)
+
+### Bug Fixes
+
+- Recognize issues can be moved to 'in progress' from 'in discovery'
+  ([`0c8f920`](https://github.com/codcod/jira-epic-timeline/commit/0c8f9203e4570ef89abfcbe1aa4ff78f8835b356))
+
+- Recognize issues can be moved to 'in progress' from 'in discovery'
+  ([`91ac316`](https://github.com/codcod/jira-epic-timeline/commit/91ac31688851c266e1ef3dac8b06509ba1de8228))
+
+### Chores
+
+- Fix updating CHANGELOG
+  ([`15643e4`](https://github.com/codcod/jira-epic-timeline/commit/15643e476afc99df745148de3ed0e064aa681fca))
+
+
+## v0.2.0 (2025-06-01)
+
+### Chores
+
+- Add editor config
+  ([`17be034`](https://github.com/codcod/jira-epic-timeline/commit/17be034465d623926f9ffe09b76254ca616cae72))
+
+### Features
+
+- New fields plus sort table
+  ([`5b6705f`](https://github.com/codcod/jira-epic-timeline/commit/5b6705f9da6a97c89e7ef23da1ecd18c6b5b5f55))
+
+
 ## v0.2.0-rc.1 (2025-06-01)
 
 ### Chores
