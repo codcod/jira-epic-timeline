@@ -54,7 +54,7 @@ def extract_transition_dates(
                         'Open',
                         'To Do',
                         'Backlog',
-                        'In Discovery'
+                        'In Discovery',
                     ]:
                         # Use the latest transition to In Progress
                         current_date = parser.parse(history.created)
