@@ -5,7 +5,7 @@ lint:
 	uvx ruff check --fix
 
 run:
-	uv run python src/timeline/main.py DIG-23224
+	./bin/tl DIG-23224
 
 build:
 	uv build
